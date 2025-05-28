@@ -1,0 +1,41 @@
+services:
+  minigame-bot:
+    container_name: minigame-bot
+    restart: always
+    env_file:
+      - stack.env
+    build:
+      context: ./app/bot
+      dockerfile: ./app/bot/Dockerfile
+    networks:
+      macvlan20:
+        ipv4_address: 172.16.13.61
+
+  minigame-website:
+    build:
+      context: ./app/web
+      dockerfile: ./app/web/Dockerfile
+    container_name: minigame-website
+    restart: always
+    ports:
+      - 2081:2081
+    networks:
+      macvlan20:
+        ipv4_address: 172.16.13.62
+
+  minigame-api:
+    build:
+      context: ./app/api
+      dockerfile: ./app/api/Dockerfile
+    container_name: minigame-api
+    restart: always
+    ports:
+      - 28001:28001
+    networks:
+      macvlan20:
+        ipv4_address: 172.16.13.63
+
+networks:
+  macvlan20:
+    external: true
+    name: macvlan20

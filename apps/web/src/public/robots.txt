@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: PerplexityBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: Baiduspider
+User-agent: wpbot
+Disallow: /
+
+Sitemap: https://minigame.letsdream.today/sitemap.xml

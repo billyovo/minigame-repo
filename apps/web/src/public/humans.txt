@@ -1,0 +1,13 @@
+Minigame Website
+
+Author
+
+billyovo
+Github: https://github.com/billyovo
+
+
+Source Code
+
+Website: https://github.com/billyovo/minigame-website
+API: https://github.com/billyovo/minigame-api-canary
+Discord Bot: https://github.com/billyovo/minigame-bot-canary

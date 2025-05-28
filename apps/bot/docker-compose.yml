@@ -1,0 +1,17 @@
+services:
+  minigame-bot:
+    container_name: minigame-bot
+    restart: always
+    env_file:
+      - stack.env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      macvlan20:
+        ipv4_address: 172.16.13.61
+    user: "root:root"
+networks:
+  macvlan20:
+    external: true
+    name: macvlan20

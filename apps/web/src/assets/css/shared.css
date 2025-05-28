@@ -1,0 +1,35 @@
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+@font-face {
+  font-family: azuki;
+  src: url('../font/azuki.ttf');
+}
+
+@font-face {
+  font-family: azuki;
+  src: url('../font/popgothic.ttf');
+  unicode-range: U+78B0, U+4F60, U+55CE;
+  font-display: swap;
+}
+
+/* what kind of UI library add !important to their css????? wtf?? */
+
+body h1, body h2, body h3, body h4, body h5, body h6, 
+body .text-h1, body .text-h2, body .text-h3, body .text-h4, body .text-h5, body .text-h6 
+body .style-font {
+  font-family: azuki !important;
+}
+
+a {
+  color: rgb(var(--v-theme-on-background));
+  text-decoration: none;
+}
+
+*{
+  scroll-behavior: smooth;
+}

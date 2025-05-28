@@ -1,0 +1,58 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "fix": "eslint --fix --ext .ts,.vue ."
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@mdi/font": "^7.4.47",
+    "@nuxt/image": "^1.1.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/storybook": "^7.0.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@storybook-vue/nuxt": "^0.2.0",
+    "@storybook-vue/nuxt-storybook": "0.0.1-latest.7",
+    "@storybook/addon-essentials": "^7.6.7",
+    "@storybook/addon-interactions": "^7.6.7",
+    "@storybook/addon-links": "^7.6.7",
+    "@storybook/builder-vite": "^7.6.7",
+    "@storybook/testing-library": "^0.2.2",
+    "@storybook/vue3": "^7.6.7",
+    "@types/dompurify": "^3.0.5",
+    "@vite-pwa/nuxt": "^0.4.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "nuxt": "^3.9.0",
+    "nuxt-simple-sitemap": "^4.4.1",
+    "storybook": "^7.6.7",
+    "typescript": "^5.3.3",
+    "vue": "^3.4.3",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.10",
+    "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/rrule": "^6.1.10",
+    "@fullcalendar/vue3": "^6.1.10",
+    "@nuxtjs/sitemap": "^5.0.1",
+    "@vuepic/vue-datepicker": "^7.4.1",
+    "debounce": "^2.0.0",
+    "dompurify": "^3.0.8",
+    "material-design-icons-iconfont": "^6.7.0",
+    "serve": "^14.2.1",
+    "vite-plugin-vuetify": "^2.0.1"
+  },
+  "lint-staged": {
+    "*.ts,*.vue": [
+      "eslint --fix --ext .ts,.vue"
+    ]
+  }
+}
