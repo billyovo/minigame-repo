@@ -21,6 +21,7 @@ USER app
 FROM base
 
 COPY --from=build /app/dist /app/dist
+COPY --from=build /app/src/public /app/dist/public
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 

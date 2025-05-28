@@ -18,7 +18,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('specs', app, document);
 
-  app.useStaticAssets(join(process.cwd(), '/src/public'));
+  app.useStaticAssets(join(process.cwd(), './public'));
 
   await app.listen(process.env.PORT);
   app.init();
