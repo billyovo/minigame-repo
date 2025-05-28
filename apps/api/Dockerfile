@@ -15,7 +15,6 @@ RUN pnpm fetch && pnpm install --frozen-lockfile --offline
 
 RUN ["pnpm", "run", "build"]
 RUN ["pnpm", "prune", "--prod"]
-RUN ["pnpm", "run", "build"]
 
 USER app
 # Runtime stage
