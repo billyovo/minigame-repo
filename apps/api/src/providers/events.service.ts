@@ -62,7 +62,7 @@ export class EventsService {
   async makeBanner(eventName: string, eventTime: string) {
     const outputPath = join(
       process.cwd(),
-      process.env.NODE_ENV === 'production' ? './dist/public' : './src/public',
+      '../public',
     );
     //if output path doesn't exist, create it
     if (!existsSync(outputPath)) mkdirSync(outputPath);
