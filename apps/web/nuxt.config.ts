@@ -23,42 +23,9 @@ export default defineNuxtConfig({
 		'@nuxt/image',
 		'@nuxtjs/eslint-module',
 		'nuxt-simple-sitemap',
-		"@vite-pwa/nuxt",
 		// '@nuxtjs/storybook',
 		// '@storybook-vue/nuxt-storybook',
 	],
-	pwa: {
-		registerType: 'autoUpdate',
-		manifest: {
-		  name: '築夢物語小遊戲',
-		  short_name: '小遊戲',
-		  theme_color: '#1F002C',
-		  icons: [
-			{
-			  src: 'pwa192.png',
-			  sizes: '192x192',
-			  type: 'image/png',
-			},
-			{
-			  src: 'pwa512.png',
-			  sizes: '512x512',
-			  type: 'image/png',
-			},
-			{
-			  src: 'pwa512.png',
-			  sizes: '512x512',
-			  type: 'image/png',
-			  purpose: 'any maskable',
-			},
-		  ],
-		},
-		workbox: {
-		  globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
-		},
-		client: {
-		  installPrompt: true,
-		},
-	},
 	nitro: {
 		ignore: ['/record', '/news', '/news/**'],
 		prerender: {
