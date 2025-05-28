@@ -24,5 +24,5 @@ COPY --from=build /app/dist /app/dist
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 
-RUN ["npx", "pnpm", "run", "build"]
-CMD ["npx", "pnpm", "run", "start:prod"]
+RUN ["pnpm", "run", "build"]
+CMD ["pnpm", "run", "start:prod"]
