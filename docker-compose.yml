@@ -5,7 +5,7 @@ services:
     build:
       context: ./apps/bot
     env_file:
-      - stack.env
+      - ../../stack.env
     networks:
       macvlan20:
         ipv4_address: 172.16.13.61
@@ -27,7 +27,7 @@ services:
     container_name: minigame-api
     restart: always
     env_file:
-      - stack.env
+      - ../../stack.env
     ports:
       - 28001:28001
     networks:
