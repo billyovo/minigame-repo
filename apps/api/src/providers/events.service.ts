@@ -66,11 +66,11 @@ export class EventsService {
     );
     //if output path doesn't exist, create it
     if (!existsSync(outputPath)) mkdirSync(outputPath);
-
-    GlobalFonts.registerFromPath('../shared/assets/font.ttf', 'gothicx');
+    const assetsPath = join(process.cwd(), '../shared/assets');
+    GlobalFonts.registerFromPath(`${assetsPath}/font.ttf`, 'gothicx');
     const canvas = createCanvas(600, 200);
     const ctx = canvas.getContext('2d');
-    const base = await loadImage('../shared/assets/banner.png');
+    const base = await loadImage(`${assetsPath}/banner.png`);
     ctx.drawImage(base, 0, 0);
 
     ctx.font = '65px gothicx';
