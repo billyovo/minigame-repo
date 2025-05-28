@@ -25,7 +25,7 @@ export async function checkGuildScheduledEvents(options : checkGuildScheduledEve
 			guild: options.guild,
 			event: event,
 			server: ServerNameChineseEnum.SKYBLOCK,
-			image: `./src/assets/images/${event.id}_${ServerNameEnum.SKYBLOCK}.png`,
+			image: `../../../assets/images/${event.id}_${ServerNameEnum.SKYBLOCK}.png`,
 			startTime: event.nextOccurrence,
 		});
 
@@ -33,7 +33,7 @@ export async function checkGuildScheduledEvents(options : checkGuildScheduledEve
 			guild: options.guild,
 			event: event,
 			server: ServerNameChineseEnum.SURVIVAL,
-			image: `./src/assets/images/${event.id}_${ServerNameEnum.SURVIVAL}.png`,
+			image: `../../../assets/images/${event.id}_${ServerNameEnum.SURVIVAL}.png`,
 			startTime: new Date(event.nextOccurrence.getTime() + timeBetweenSurvivalAndSkyblockInMillisecond),
 		});
 	}
