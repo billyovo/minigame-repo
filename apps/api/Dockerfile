@@ -15,6 +15,7 @@ RUN pnpm fetch && pnpm install --frozen-lockfile --offline
 
 RUN ["pnpm", "run", "build"]
 RUN ["pnpm", "prune", "--prod"]
+RUN ["pnpm", "run", "build"]
 
 USER app
 # Runtime stage
@@ -24,5 +25,4 @@ COPY --from=build /app/dist /app/dist
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 
-RUN ["npm", "run", "build"]
 CMD ["npm", "run", "start:prod"]
