@@ -5,6 +5,7 @@ import { guildEventScheduleDuration, guildEventScheduleTime, timeBetweenSurvival
 import { ServerNameChineseEnum, ServerNameEnum } from "@enums/servers";
 import { getGuildScheduledEventMessage } from "@assets/messages/messages";
 import fs from "fs/promises";
+import { join } from "path";
 import { logger } from "../../../logger/logger";
 
 export async function checkGuildScheduledEvents(options : checkGuildScheduledEventsOptions) : Promise<void> {
@@ -25,7 +26,7 @@ export async function checkGuildScheduledEvents(options : checkGuildScheduledEve
 			guild: options.guild,
 			event: event,
 			server: ServerNameChineseEnum.SKYBLOCK,
-			image: `../../../assets/images/${event.id}_${ServerNameEnum.SKYBLOCK}.png`,
+			image: join(process.cwd(), `./assets/images/${event.id}_${ServerNameEnum.SKYBLOCK}.png`),
 			startTime: event.nextOccurrence,
 		});
 
@@ -33,7 +34,7 @@ export async function checkGuildScheduledEvents(options : checkGuildScheduledEve
 			guild: options.guild,
 			event: event,
 			server: ServerNameChineseEnum.SURVIVAL,
-			image: `../../../assets/images/${event.id}_${ServerNameEnum.SURVIVAL}.png`,
+			image: join(process.cwd(), `./assets/images/${event.id}_${ServerNameEnum.SURVIVAL}.png`),
 			startTime: new Date(event.nextOccurrence.getTime() + timeBetweenSurvivalAndSkyblockInMillisecond),
 		});
 	}

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
+    "start": "node index.js",
     "build": "tsc -p . && tsc-alias",
     "register": "ts-node ./src/commands/register",
     "fix": "eslint src --fix",

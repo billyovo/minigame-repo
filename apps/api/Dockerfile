@@ -20,9 +20,9 @@ USER app
 # Runtime stage
 FROM base
 
-COPY --from=build /app/dist /app/dist
-COPY --from=build /app/src/public /app/dist/public
-COPY --from=build /app/src/shared/assets /app/dist/shared/assets
+COPY --from=build /app/dist /app
+COPY --from=build /app/src/public /app/public
+COPY --from=build /app/src/shared/assets /app/shared/assets
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 

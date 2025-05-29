@@ -20,8 +20,8 @@ USER app
 # Runtime stage
 FROM base
 
-COPY --from=build /app/dist /app/dist
-COPY --from=build /app/src/assets/images /app/dist/assets/images
+COPY --from=build /app/dist /app
+COPY --from=build /app/src/assets/images /app/assets/images
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 
