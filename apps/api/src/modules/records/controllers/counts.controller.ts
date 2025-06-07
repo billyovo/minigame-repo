@@ -24,7 +24,7 @@ export class CountController {
     private readonly eventsService: EventsService,
   ) {}
 
-  @Get('/:server/{:event}/{:name}')
+  @Get('/:server{/:event}{/:name}')
   @ApiOperation({ summary: 'Get win count' })
   @ApiOkResponse({ description: 'Win count', type: CountDto })
   @UsePipes(
