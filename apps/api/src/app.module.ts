@@ -14,6 +14,7 @@ import { BannerController } from './modules/banner/banner.controller';
 import { LoggerMiddleware } from './shared/middlewares/logger.middleware';
 import { EventsController } from './modules/events/events.controller';
 import { RootController } from './modules/root/app.controller';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { RootController } from './modules/root/app.controller';
       { name: WinnerRecord.name, schema: WinnerRecordSchema },
       { name: NewsItem.name, schema: NewsItemSchema },
     ]),
+    ScheduleModule.forRoot(),
   ],
   controllers: [
     RecordsController,
