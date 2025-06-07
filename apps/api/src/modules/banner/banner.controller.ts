@@ -9,7 +9,7 @@ import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 export class BannerController {
   constructor() {}
 
-  @Get('/banner-today.png')
+  @Get(['/banner-today.png', '/banner-today'])
   @ApiOperation({ summary: 'Get banner image, showing nearest event' })
   @ApiOkResponse({ description: 'Banner image', content: { 'image/png': {} } })
   getBannerToday(@Res() res: Response) {

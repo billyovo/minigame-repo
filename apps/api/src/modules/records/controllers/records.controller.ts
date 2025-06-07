@@ -24,7 +24,7 @@ export class RecordsController {
     private readonly eventsService: EventsService,
   ) {}
 
-  @Get('/:server/:event?/:name?')
+  @Get('/:server/{:event}/{:name}')
   @ApiOperation({ summary: 'Get win record' })
   @ApiOkResponse({ description: 'Win record', type: RecordDto, isArray: true })
   @UsePipes(
