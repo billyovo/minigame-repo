@@ -4,7 +4,7 @@ import { generateSchedule } from './utils/utils';
 import { Cron } from '@nestjs/schedule';
 import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas';
 import { join } from 'path';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
 import { Event } from './EventDto';
 
 export class EventsService {
@@ -70,7 +70,12 @@ export class EventsService {
     GlobalFonts.registerFromPath(`${assetsPath}/font.ttf`, 'gothicx');
     const canvas = createCanvas(600, 200);
     const ctx = canvas.getContext('2d');
-    const base = await loadImage(`${assetsPath}/banner.png`);
+    const baseBannerImgData = readFileSync(`${assetsPath}/banner.png`);
+    if (!baseBannerImgData) {
+      console.error('Base banner image not found');
+      return;
+    }
+    const base = await loadImage(baseBannerImgData);
     ctx.drawImage(base, 0, 0);
 
     ctx.font = '65px gothicx';
