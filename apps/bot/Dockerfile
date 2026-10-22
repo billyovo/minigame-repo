@@ -13,7 +13,7 @@ COPY tsconfig.json /app/
 RUN corepack enable
 RUN corepack use pnpm@latest-10
 
-RUN pnpm fetch && pnpm install --frozen-lockfile --offline
+RUN pnpm fetch && pnpm install --frozen-lockfile --offline --force
 RUN ["pnpm", "run", "build"]
 RUN ["pnpm", "prune", "--prod"]
 
