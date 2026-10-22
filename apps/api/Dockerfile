@@ -10,7 +10,6 @@ COPY package.json pnpm-lock.yaml /app/
 COPY src /app/src
 COPY tsconfig.json /app/
 
-RUN pnpm approve-builds @nestjs @scarf
 RUN corepack enable
 RUN pnpm fetch && pnpm install --frozen-lockfile --offline --allow-build=@nestjs --allow-build=@scarf
 
