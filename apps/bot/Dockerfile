@@ -11,6 +11,7 @@ COPY src /app/src
 COPY tsconfig.json /app/
 
 RUN corepack enable
+RUN pnnpm approve-builds esbuild mongodb-memory-server
 RUN pnpm fetch && pnpm install --frozen-lockfile --offline
 
 RUN ["pnpm", "run", "build"]
