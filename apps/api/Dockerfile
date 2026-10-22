@@ -12,7 +12,7 @@ COPY tsconfig.json /app/
 
 RUN pnpm approve-builds @nestjs @scarf
 RUN corepack enable
-RUN pnpm fetch && pnpm install --frozen-lockfile --offline
+RUN pnpm fetch && pnpm install --frozen-lockfile --offline --allow-build=@nestjs --allow-build=@scarf
 
 RUN ["pnpm", "run", "build"]
 RUN ["pnpm", "prune", "--prod"]
