@@ -101,17 +101,15 @@
           :dark="theme.current.value.dark"
           :max-date="new Date()"
           :min-date="new Date(2020,7,12)"
-          format="yyyy-MM-dd"
+          :formats="{ input: 'yyyy-MM-dd' }"
           model-type="yyyy-MM-dd"
-          position="right"
-          select-text="選取"
-          cancel-text="取消"
-          locale="zh-tw"
+          :floating="{ placement: 'bottom-end' }"
+          :action-row="{ selectBtnLabel: '選取', cancelBtnLabel: '取消', showNow: true, nowBtnLabel: '今天' }"
+          :locale="zhTW"
+          :week-start="1"
           :day-names="['日','一','二','三','四','五','六']"
-          :show-now-button="true"
-          now-button-label="今天"
           :hide-navigation="['time', 'calendar']"
-          :clearable="false"
+          :input-attrs="{ clearable: false }"
         />
       </v-col>
       <v-divider class="my-2" />
@@ -135,7 +133,8 @@
 
 <script setup lang="ts">
 import { useTheme } from 'vuetify'
-import VueDatePicker from '@vuepic/vue-datepicker'
+import { VueDatePicker } from '@vuepic/vue-datepicker'
+import { zhTW } from 'date-fns/locale'
 import { useRouter } from 'vue-router'
 import type { EventData } from '~/@types/events'
 import { RecordMode, Server } from '~/enums/record'

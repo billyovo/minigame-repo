@@ -1,15 +1,15 @@
-FROM node:22-alpine AS build
+FROM ghcr.io/pnpm/pnpm:12 AS build
 WORKDIR /app
+
+RUN pnpm runtime set node 26 --global
 
 COPY . /app/
 
-RUN corepack enable
-RUN corepack use pnpm@latest-10
 RUN pnpm fetch && pnpm install --frozen-lockfile --offline --force
 
 RUN ["pnpm", "run", "generate"]
 
-FROM nginx/nginx-unprivileged:alpine-perl AS runtime
+FROM nginx/nginx-unprivileged:alpine AS runtime
 
 COPY --from=build /app/.output/public /usr/share/nginx/html
 COPY --from=build /app/src/nginx/nginx.conf /etc/nginx/conf.d/default.conf

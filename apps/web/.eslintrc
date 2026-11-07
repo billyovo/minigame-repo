@@ -1,8 +1,0 @@
-{
-    "extends": ["@nuxtjs/eslint-config-typescript"],
-    "rules": {
-      "indent": ["error", "tab"],
-      "no-tabs": 0,
-      "vue/no-multiple-template-root": 0
-    }
-}

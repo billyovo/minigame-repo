@@ -2,6 +2,11 @@
 import vuetify from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
 	devtools: { enabled: true },
+	eslint: {
+		config: {
+			stylistic: { indent: 'tab', commaDangle: 'never' }
+		}
+	},
 	css: ['assets/css/shared.css'],
 	site: {
 		url: 'https://minigame.letsdream.today'
@@ -10,7 +15,7 @@ export default defineNuxtConfig({
 		transpile: ['vuetify', '@vuepic/vue-datepicker']
 	},
 	pinia: {
-		storesDirs: ['./stores/**']
+		storesDirs: ['./src/stores/**']
 	},
 	modules: [
 		(_options, nuxt) => {
@@ -21,10 +26,8 @@ export default defineNuxtConfig({
 		},
 		'@pinia/nuxt',
 		'@nuxt/image',
-		'@nuxtjs/eslint-module',
-		'nuxt-simple-sitemap',
-		// '@nuxtjs/storybook',
-		// '@storybook-vue/nuxt-storybook',
+		'@nuxt/eslint',
+		'@nuxtjs/sitemap',
 	],
 	nitro: {
 		ignore: ['/record', '/news', '/news/**'],
@@ -39,16 +42,15 @@ export default defineNuxtConfig({
 		'/news/**': { ssr: false },
 		'/record': { ssr: false }
 	},
-	storybook: {
-		url: 'http://localhost:3001',
-		port: 3001
-	},
 	runtimeConfig: {
 		public: {
 			baseURL: 'https://minigame-api.letsdream.today'
 		}
 	},
 	srcDir: 'src/',
+	dir: {
+		public: 'src/public'
+	},
 	app: {
 		head: {
 			link: [{ rel: 'icon', type: 'image/svg', href: '/favicon.svg' }],

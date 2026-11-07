@@ -68,9 +68,13 @@
 <script setup lang="ts">
 import { useDisplay } from 'vuetify'
 import FullCalendar from '@fullcalendar/vue3'
-import dayGridPlugin from '@fullcalendar/daygrid'
+import dayGridPlugin from '@fullcalendar/vue3/daygrid'
+import themePlugin from '@fullcalendar/vue3/themes/classic'
 import rrulePlugin from '@fullcalendar/rrule'
-import zhLocale from '@fullcalendar/core/locales/zh-tw'
+import zhLocale from '@fullcalendar/vue3/locales/zh-tw'
+import '@fullcalendar/vue3/skeleton.css'
+import '@fullcalendar/vue3/themes/classic/theme.css'
+import '@fullcalendar/vue3/themes/classic/palette.css'
 import { useEventsStore } from '~/stores/events.store'
 
 const config = useRuntimeConfig()
@@ -100,27 +104,31 @@ const eventsSource = computed(() => {
 	})
 })
 
-const calendarOption = ref({
+const calendarOption = computed(() => ({
 	initialView: 'dayGridMonth',
-	plugins: [dayGridPlugin, rrulePlugin],
+	plugins: [themePlugin, dayGridPlugin, rrulePlugin],
+	headerToolbar: { start: 'title', center: '', end: 'today prev,next' },
+	dayCellTopClass: (arg: { isToday: boolean }) => arg.isToday ? 'calendar-today' : '',
 	showNonCurrentDates: false,
-	events: eventsSource,
+	events: eventsSource.value,
 	validRange: {
 		start: new Date()
 	},
 	eventColor: 'transparent',
 	locale: zhLocale
-})
+}))
 
 await eventsStore.fetchEventsData()
 </script>
 
 <style>
      :root{
-        --fc-today-bg-color: transparent;
+        --fc-classic-today: transparent;
+        --fc-classic-background: transparent;
+        --fc-classic-foreground: inherit;
      }
 
-     .fc-day-today > div > div > a {
+     .calendar-today {
       color: red;
       font-weight: bold;
      }

@@ -1,0 +1,4 @@
+allowBuilds:
+  '@parcel/watcher': true
+  '@nestjs/core': true
+  '@scarf/scarf': true

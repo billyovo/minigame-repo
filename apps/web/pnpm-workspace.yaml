@@ -1,0 +1,14 @@
+allowBuilds:
+  '@parcel/watcher': true
+  'esbuild': true
+  'sharp': true
+  'unrs-resolver': true
+  'vue-demi': true
+minimumReleaseAgeExclude:
+  - '@storybook/addon-docs@10.6.6'
+  - '@storybook/addon-links@10.6.6'
+  - '@storybook/builder-vite@10.6.6'
+  - '@storybook/react-dom-shim@10.6.6'
+  - '@storybook/vue3@10.6.6'
+  - storybook@10.6.6
+shamefullyHoist: true

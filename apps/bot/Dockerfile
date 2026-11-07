@@ -1,23 +1,18 @@
-FROM node:22-alpine AS base
+FROM ghcr.io/pnpm/pnpm:12 AS base
 WORKDIR /app
+
+RUN pnpm runtime set node 26 --global
 
 FROM base AS build
 
-RUN addgroup -S app && adduser -S app -G app
-RUN chown -R app:app /app
-
-COPY package.json pnpm-lock.yaml /app/
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml /app/
 COPY src /app/src
 COPY tsconfig.json /app/
-
-RUN corepack enable
-RUN corepack use pnpm@latest-10
 
 RUN pnpm fetch && pnpm install --frozen-lockfile --offline --force
 RUN ["pnpm", "run", "build"]
 RUN ["pnpm", "prune", "--prod"]
 
-USER app
 # Runtime stage
 FROM base
 
@@ -26,4 +21,4 @@ COPY --from=build /app/src/assets/images /app/assets/images
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 
-CMD ["npm", "run", "start"]
+CMD ["node", "index.js"]
